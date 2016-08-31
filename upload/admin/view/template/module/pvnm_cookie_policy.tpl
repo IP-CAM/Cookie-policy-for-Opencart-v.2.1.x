@@ -1,42 +1,42 @@
 <?php echo $header; ?><?php echo $column_left; ?>
 <div id="content">
   <div class="page-header">
-    <div class="container-fluid">
-      <div class="pull-right">
-        <button type="submit" form="form" data-toggle="tooltip" title="<?php echo $button_save; ?>" class="btn btn-success"><i class="fa fa-save"></i></button>
-        <a href="<?php echo $cancel; ?>" data-toggle="tooltip" title="<?php echo $button_cancel; ?>" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
-      <h1><?php echo $heading_title; ?></h1>
-      <ul class="breadcrumb">
-        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-        <?php } ?>
-      </ul>
-    </div>
+	<div class="container-fluid">
+	  <div class="pull-right">
+		<button type="submit" form="form" data-toggle="tooltip" title="<?php echo $button_save; ?>" class="btn btn-success"><i class="fa fa-save"></i></button>
+		<a href="<?php echo $cancel; ?>" data-toggle="tooltip" title="<?php echo $button_cancel; ?>" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+	  <h1><?php echo $heading_title; ?></h1>
+	  <ul class="breadcrumb">
+		<?php foreach ($breadcrumbs as $breadcrumb) { ?>
+		<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+		<?php } ?>
+	  </ul>
+	</div>
   </div>
   <div class="container-fluid">
-    <?php if ($error_warning) { ?>
-    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-    </div>
-    <?php } ?>
-    <?php if ($success) { ?>
-    <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-    </div>
-    <?php } ?>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-cogs"></i> <?php echo $text_edit; ?></h3>
-      </div>
-      <div class="panel-body">
-        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form" class="form-horizontal">
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab-settings" data-toggle="tab"><i class="fa fa-cog"></i> <?php echo $tab_settings; ?></a></li>
-            <li><a href="#tab-help" data-toggle="tab"><i class="fa fa-comment"></i> <?php echo $tab_help; ?></a></li>
-          </ul>
-          <div class="tab-content">
+	<?php if ($error_warning) { ?>
+	<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	</div>
+	<?php } ?>
+	<?php if ($success) { ?>
+	<div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	</div>
+	<?php } ?>
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<h3 class="panel-title"><i class="fa fa-cogs"></i> <?php echo $text_edit; ?></h3>
+	  </div>
+	  <div class="panel-body">
+		<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form" class="form-horizontal">
+		  <ul class="nav nav-tabs">
+			<li class="active"><a href="#tab-settings" data-toggle="tab"><i class="fa fa-cog"></i> <?php echo $tab_settings; ?></a></li>
+			<li><a href="#tab-help" data-toggle="tab"><i class="fa fa-comment"></i> <?php echo $tab_help; ?></a></li>
+		  </ul>
+		  <div class="tab-content">
 		  <div class="tab-pane active" id="tab-settings">
-            <div class="row">
+			<div class="row">
 				<div class="col-md-2">
 					<ul class="nav nav-pills nav-stacked">
 					  <?php foreach ($modules as $module) { ?>
@@ -144,7 +144,7 @@
 								  </select>
 								</div>
 							</div>
-						    <div class="form-group">
+							<div class="form-group">
 								<label class="col-sm-2 control-label" for="input-notice-position<?php echo $module['module_id']; ?>"><?php echo $entry_notice_position; ?></label>
 								<div class="col-sm-10">
 								  <select name="module[<?php echo $module['module_id']; ?>][notice_position]" id="input-notice-position<?php echo $module['module_id']; ?>" class="form-control">
@@ -153,10 +153,10 @@
 								  </select>
 								</div>
 							</div>
-						    <div class="form-group">
+							<div class="form-group">
 							  <label class="col-sm-2 control-label" for="input-status<?php echo $module['module_id']; ?>"><?php echo $entry_status; ?></label>
 							  <div class="col-sm-10">
-							    <div class="btn-group" data-toggle="buttons" id="input-status<?php echo $module['module_id']; ?>">
+								<div class="btn-group" data-toggle="buttons" id="input-status<?php echo $module['module_id']; ?>">
 								<?php if ($module['setting']['status'] == 1) { ?>
 								<label class="btn btn-info active"><input type="radio" name="module[<?php echo $module['module_id']; ?>][status]" value="1" autocomplete="off" checked="checked"><?php echo $text_enabled; ?></label>
 								<label class="btn btn-info"><input type="radio" name="module[<?php echo $module['module_id']; ?>][status]" value="0" autocomplete="off"><?php echo $text_disabled; ?></label>
@@ -164,29 +164,29 @@
 								<label class="btn btn-info"><input type="radio" name="module[<?php echo $module['module_id']; ?>][status]" value="1" autocomplete="off"><?php echo $text_enabled; ?></label>
 								<label class="btn btn-info active"><input type="radio" name="module[<?php echo $module['module_id']; ?>][status]" value="0" autocomplete="off" checked="checked"><?php echo $text_disabled; ?></label>
 								<?php } ?>
-							    </div>
+								</div>
 							  </div>
-						    </div>
+							</div>
 						</div>
 					  <?php } ?>
 					</div>
 				</div>
-            </div>
+			</div>
 		  </div>
-          <div class="tab-pane" id="tab-help">
-            <div class="form-group">
-              <label class="col-sm-2 control-label"><?php echo $text_documentation; ?></label>
-              <div class="col-sm-10"><a href="https://github.com/p0v1n0m/opencart_cookie_policy" target="_blank" class="btn">https://github.com/p0v1n0m/opencart_cookie_policy</a></div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label"><?php echo $text_developer; ?></label>
-              <div class="col-sm-10"><a href="mailto:p0v1n0m@gmail.com" class="btn">p0v1n0m@gmail.com</a></div>
-            </div>
-          </div>
+		  <div class="tab-pane" id="tab-help">
+			<div class="form-group">
+			  <label class="col-sm-2 control-label"><?php echo $text_documentation; ?></label>
+			  <div class="col-sm-10"><a href="https://github.com/p0v1n0m/opencart_cookie_policy" target="_blank" class="btn">https://github.com/p0v1n0m/opencart_cookie_policy</a></div>
+			</div>
+			<div class="form-group">
+			  <label class="col-sm-2 control-label"><?php echo $text_developer; ?></label>
+			  <div class="col-sm-10"><a href="mailto:p0v1n0m@gmail.com" class="btn">p0v1n0m@gmail.com</a></div>
+			</div>
 		  </div>
-        </form>
-      </div>
-    </div>
+		  </div>
+		</form>
+	  </div>
+	</div>
   </div>
 </div>
 <script type="text/javascript"><!--
@@ -197,7 +197,7 @@ $('.nav-stacked .module:first-child a').trigger('click');
 <?php } ?>
 
 $.minicolors.defaults = $.extend($.minicolors.defaults, {
-    theme: 'bootstrap'
+	theme: 'bootstrap'
 });
 
 <?php foreach ($modules as $module) { ?>
@@ -333,5 +333,5 @@ function addModule() {
 
 	module_row++;
 }
-//--></script> 
+//--></script>
 <?php echo $footer; ?>

@@ -13,7 +13,7 @@ class ControllerModulePvnmCookiePolicy extends Controller {
 		$data['repeat'] = $setting['repeat'];
 		$data['notice_position'] = $setting['notice_position'];
 
-    	if (!isset($this->request->cookie['pvnm_cookie_policy_' . $setting['module_id']])) {
+		if (!isset($this->request->cookie['pvnm_cookie_policy_' . $setting['module_id']])) {
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/pvnm_cookie_policy.tpl')) {
 				return $this->load->view($this->config->get('config_template') . '/template/module/pvnm_cookie_policy.tpl', $data);
 			} else {
@@ -22,7 +22,7 @@ class ControllerModulePvnmCookiePolicy extends Controller {
 		}
 	}
 
-    public function add(){
+	public function add(){
 		if (isset($this->request->post['cookie'])) {
 			setcookie('pvnm_cookie_policy_' . $this->request->post['cookie'], base64_encode(serialize($_SERVER['REMOTE_ADDR'] . $this->request->post['cookie'])), time() + 60 * 60 * 24 * 999, '/', $this->request->server['HTTP_HOST']);
 
@@ -30,5 +30,5 @@ class ControllerModulePvnmCookiePolicy extends Controller {
 
 			$this->response->setOutput(json_encode($json));
 		}
-    }
+	}
 }

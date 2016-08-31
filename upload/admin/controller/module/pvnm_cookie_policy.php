@@ -2,10 +2,10 @@
 class ControllerModulePvnmCookiePolicy extends Controller {
 	private $error = array();
 
-    public function index() {
-        $this->load->language('module/pvnm_cookie_policy');
+	public function index() {
+		$this->load->language('module/pvnm_cookie_policy');
 
-        $this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->document->addStyle('view/javascript/pvnm/jquery-minicolors/jquery.minicolors.css');
 		$this->document->addScript('view/javascript/pvnm/jquery-minicolors/jquery.minicolors.min.js');
@@ -94,17 +94,17 @@ class ControllerModulePvnmCookiePolicy extends Controller {
 			$data['success'] = '';
 		}
 
-  		$data['breadcrumbs'] = array();
+		$data['breadcrumbs'] = array();
 
-   		$data['breadcrumbs'][] = array(
-       		'text' => $this->language->get('text_home'),
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
-   		);
+		);
 
-   		$data['breadcrumbs'][] = array(
-       		'text' => $this->language->get('text_module'),
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_module'),
 			'href' => $this->url->link('extension/module', 'token=' . $this->session->data['token'], 'SSL')
-   		);
+		);
 
 		if (!isset($this->request->get['module_id'])) {
 			$data['breadcrumbs'][] = array(
@@ -139,9 +139,9 @@ class ControllerModulePvnmCookiePolicy extends Controller {
 				$setting = json_decode($module['setting'], true);
 
 				$data['modules'][] = array(
-					'module_id' 	=> $module['module_id'],
-					'name' 			=> $module['name'],
-					'setting' 		=> $setting
+					'module_id' => $module['module_id'],
+					'name'      => $module['name'],
+					'setting'   => $setting
 				);
 
 				$setting = '';
@@ -162,13 +162,13 @@ class ControllerModulePvnmCookiePolicy extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 
 		$this->response->setOutput($this->load->view('module/pvnm_cookie_policy.tpl', $data));
-    }
+	}
 
 	protected function validate() {
-        if (!$this->user->hasPermission('modify', 'module/pvnm_cookie_policy')) {
-            $this->error['warning'] = $this->language->get('error_permission');
-        }
+		if (!$this->user->hasPermission('modify', 'module/pvnm_cookie_policy')) {
+			$this->error['warning'] = $this->language->get('error_permission');
+		}
 
 		return !$this->error;
-    }
+	}
 }
